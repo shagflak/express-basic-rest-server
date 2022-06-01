@@ -1,6 +1,6 @@
 # WebServer + Rest Server
 
-Before running ```npm start``` recuerda correr ```npm install``` para reconstruir los modulos de node.
+Before running ```npm start``` recuerda correr ```npm install``` to rebuild node modules.
 
 # Steps to link heroku to your app
 
