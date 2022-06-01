@@ -17,5 +17,5 @@ https://devcenter.heroku.com/articles/git
 ```
 git add .
 git commit -m "make a bit better
-git push heroku main"
+git push heroku-staging main"
 ```
