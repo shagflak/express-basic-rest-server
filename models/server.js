@@ -1,6 +1,7 @@
 const express = require("express");
 const cors    = require('cors');
 const userRoutes  = require('../routes/user.route');
+const dbConnection = require('../db/config');
 
 class Server {
     constructor() {
@@ -11,6 +12,8 @@ class Server {
         this.routeNames = {
             usersRoute: '/api/users'
         }
+
+        this.connectDB();
 
         // Middle-wares
         this.middlewares();
@@ -43,6 +46,10 @@ class Server {
         // https://stackoverflow.com/questions/5924072/express-js-cant-get-my-static-files-why
         // more about __dirname -> https://www.geeksforgeeks.org/difference-between-__dirname-and-in-node-js/#:~:text=The%20__dirname%20in%20a,It%20works%20similar%20to%20process.
         this.app.use( express.static('public') )
+    }
+
+    async connectDB() {
+        await dbConnection();
     }
 }
 
