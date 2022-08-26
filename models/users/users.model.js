@@ -32,4 +32,12 @@ const UserSchema = Schema({
     },
 });
 
+//NOTE: excluding some properties when the object is printed (on a the response for example) to avoid displaying "__v" and "password"
+// toJSON is invoked when you try to print the object.
+UserSchema.methods.toJSON = function() {
+    // NOTE: Using deconstruction feature combined with spread operator to isolate properties on a new object, pretty neat!.
+    const { __v, password, ...user } = this.toObject();
+    return user;
+}
+
 module.exports = model('User', UserSchema)
